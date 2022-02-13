@@ -7,6 +7,22 @@ body, p, li {
     overflow: scroll;
     background-color: #0e0e0e;
     }
+    input {
+      width: 75%;
+    }
+    label {
+      height: 25px;
+    }
+    .upload{
+      left: 25%;
+      width: 60%;
+      height: 40%;
+      border-radius: 12px;
+      background-color: #ffffff10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 spx 15px rgba(121, 86, 86, 0.7);
+    }
     img {
     border: 5px outset transparent;
     border-radius: 12px;
@@ -52,7 +68,7 @@ body, p, li {
     font-family: Arial,Helvetica,sans-serif;
     font-size: x-large;
     width: 15px;
-    float: right;
+    float: left;
     font-weight: bold;
     }
     p3 {

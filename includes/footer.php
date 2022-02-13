@@ -19,7 +19,7 @@
 		  <i id="fa" class="fa fa-search"></i>
 	</button>
   <button class="openBtn">
-    <a href="http://api.whatsapp.com/send?phone=+917041220136&text=uploadvideo"><i id="fa" class="fa fa-plus" aria-hidden="true"></i>
+    <a href="upload.php"><i id="fa" class="fa fa-plus" aria-hidden="true"></i>
   </button></a>
   <a href="https://htmlpreview.github.io/?https://github.com/sohamsinh31/Vplex.github.io/blob/main/music/music.html">
     <button class="openBtn">

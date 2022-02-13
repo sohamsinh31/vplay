@@ -15,19 +15,26 @@ else
 ?>
 <!DOCTYPE html>
 <html>
+  <head>
+  <link id="stylesheet" rel="stylesheet" type="text/css" href="includes/style.css"/>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  </head>
 <body>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
   Select image to upload:
-  <br>Title<br>
-  <input type="text" name="name" id="name">
-  <br>Description<br>
-  <input type="text" name="desc" id="desc">
+  <div class="upload">
+  <label>Title:</label>
+  <input class="form-control" type="text" name="name" id="name">
+  <label>Description:</label>
+  <input style="
+    width: 62%;" class="form-control" type="text" name="desc" id="desc">
   <br>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <br>
   <input type="file" name="fileToUpload2" id="fileToUpload2">
-  <input type="submit" value="Upload Image" name="submit">
+  <input style="background-color:blue;" class="btn btn-primary" type="submit" value="Upload video" name="submit">
+</div>
 </form>
 
 </body>

@@ -1,3 +1,4 @@
+<!--  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,20 +42,26 @@ $sql = "SELECT * FROM `persons`";
 $result = mysqli_query($conn, $sql);
 $imcl =" class='im1'";
 $im2cl =" class='im2'";
-$imsrc =" src='https://github.com/sohamsinh31/Vplex.github.io/blob/main/images/channel/unnamed.png?raw=true'";
+$imsrc =" 'src='.$username.''";
 $ima = "<p2 style='color: black;'><a href = 'javascript:void(0)' onclick = 'document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block''>:</a></p2>";
+$sql2 = "SELECT * FROM `users`";
+$result2 = mysqli_query($conn, $sql2);
+$num2 = mysqli_num_rows($result2);
+// $userim = $row2['image'];
+// $username = $row2['name'];
 // Find the number of records returned
 $num = mysqli_num_rows($result);
 // Display the rows returned by the sql query
 if($num> 0){
-    while($row = mysqli_fetch_assoc($result)){
+    while(($row2 = mysqli_fetch_assoc($result2))){
+      while($row = mysqli_fetch_assoc($result)){
         // echo var_dump($row);
         echo "<div id="."s2".">";
-        echo "<p1><img".$imcl."".$imsrc.">VOLVET</p1>".$ima."";
+        echo "<p1><img ".$imcl." src='".$row2['image']."'>".$row2['name']."</p1>".$ima;
         echo "<a href=".$row['vidpath']."><img".$im2cl."src=".$row['thumbpath']."></a>";
         echo "<p3>".$row['Name']."</p3></a>";
     }
-
+  }
 
 }
 ?>
