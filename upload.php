@@ -33,13 +33,20 @@ else
   <input type="file" name="fileToUpload" id="fileToUpload">
   <br>
   <input type="file" name="fileToUpload2" id="fileToUpload2">
-  <input style="background-color:blue;" class="btn btn-primary" type="submit" value="Upload video" name="submit">
+  <button style="width:100%;" onclick="clickme()" style="background-color:blue;" class="btn btn-primary" type="submit"  name="submit">Uploadvideo</button>
 </div>
 </form>
 
 </body>
+<script>
+function clickme(){
+var result ="<?php uploadvideo2(); ?>"
+document.write(result);
+}
+</script>
 </html>
 <?php
+function uploadvideo2(){
 $name = $_POST['name'];
 $description = $_POST['desc'];
 $target_dir = "uploads/thumbnails/";
@@ -100,5 +107,6 @@ if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
+}
 }
 ?>

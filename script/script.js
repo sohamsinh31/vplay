@@ -60,4 +60,12 @@ function togglePopup(){
          document.addEventListener("contextmenu",function(minitv) {
            minitv.preventDefault();
          });
+         function clickme(){
+          alert("Submit button clicked!");
+          return true;
+          }
+          function foo() {
+             alert("Submit button clicked!");
+             return true;
+          }
          

@@ -11,14 +11,16 @@ else{
 mysqli_select_db($con,'vuploads');
 $name = $_POST['user'];
 $pass = $_POST['password'];
+$email = $_POST['email'];
 $q = " SELECT * FROM `users` where name = '$name' && password = '$pass'";
 $result = mysqli_query($con,$q);
 $num = mysqli_num_rows($result);
 if($num == 1){
-    echo "Already taken";
+    $_SESSION['username'] = $name;
+    header('location:index.php');
+
 }
 else{
-    $qy=" INSERT into `users`(name , password) values ('$name' , '$pass')";
-    mysqli_query($con,$qy);
+    header('location:login.php');
 }
 ?>

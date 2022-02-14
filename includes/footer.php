@@ -33,7 +33,7 @@
   </a>
   <a href = "javascript:void(0)" onclick = "document.getElementById('lightt').style.display='block';document.getElementById('fade').style.display='block'">
   <button id="openBtn" class="openBtn">
-      <i id="fa2" class="fas fa-ellipsis-v"></i>
+      <i id="fa2" class="fa-solid fa-user"></i>
     </button>
   </a>
   </a>

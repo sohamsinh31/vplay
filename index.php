@@ -1,11 +1,16 @@
-<!--  -->
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/
 font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <title>h1</title>
+  <title>vplay</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,6 +26,7 @@ font-awesome.min.css">
 <button class="butn1"><a href="https://webhost-30b9b.firebaseapp.com/vmtv">VPLAY</a></button>
 <button class="butn1"><a href="https://hemaborasia.wixsite.com/website">ABOUT US!</a></button>
 <button class="butn1"><a href="https://hemaborasia.wixsite.com/website">HELP</a></button>
+<button class="butn1"><a href="logout.php">Logout</a></button>
 </div>
 <div id="light" class="white_content" style="color: black"><button style="font-size: x-large; font-weight: bold;"  class="btn1"><a style="color: black" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a></button><button class="no2" id="q1" style="font-size: x-large;">watch now</button><button class="no2" style="font-size: x-large;">watch later</button><button class="no2" id="s1" style="font-size: x-large;"> not intrested</button></div>
 <br>
