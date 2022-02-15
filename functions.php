@@ -4,13 +4,14 @@ function createDirectory() {
 		mkdir('users/'.$add.'');
 	}
 function userimage() {
+	session_start();
 		$con = mysqli_connect('localhost','root');
 		mysqli_select_db($con,'vuploads');
 		$q = " SELECT * FROM `users` ";
 		$result = mysqli_query($con,$q);
 		$num = mysqli_num_rows($result);
 		while($row = mysqli_fetch_assoc($result)){
-			$target_dir = "users/".$row['name']."/";
+			$target_dir = "users/".$_SESSION['username']."/";
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -39,6 +40,7 @@ function userimage() {
 		}
 		}
 function uploadvideo() {
+	session_start();
 	$target_dir = "uploads/thumbnails/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -98,5 +100,17 @@ if ($conn->query($sql) === TRUE) {
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
+}
+function userimmenu() {
+	include("includes/db.php");
+	$nameu = $_SESSION['username'];
+	$sql = "SELECT * FROM `users` WHERE name = '$nameu'";
+	$result = mysqli_query($conn, $sql);
+	$num = mysqli_num_rows($result);
+	if($num> 0){
+		while($row = mysqli_fetch_assoc($result)){
+			echo "<img style="."'width:38px;height:36px;border-radius:100px;float:left;'"." src='".$row['image']."'>";
+		}
+	}
 }
     ?>

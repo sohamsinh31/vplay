@@ -1,3 +1,4 @@
+<?php include_once('functions.php'); ?>
 <section id="footer">
 <div id="myOverlay" class="overlay">
 	<span class="closebtn"
@@ -33,7 +34,7 @@
   </a>
   <a href = "javascript:void(0)" onclick = "document.getElementById('lightt').style.display='block';document.getElementById('fade').style.display='block'">
   <button id="openBtn" class="openBtn">
-      <i id="fa2" class="fa-solid fa-user"></i>
+      <?php userimmenu(); ?>
     </button>
   </a>
   </a>

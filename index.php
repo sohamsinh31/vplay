@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['username'])){
   header('location:login.php');
 }
+include('functions.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,7 @@ font-awesome.min.css">
 <br>
 <div id="lightt" class="white_content2">
   <a style="color: black" href = "javascript:void(0)" onclick = "document.getElementById('lightt').style.display='none';document.getElementById('fade').style.display='none'"><button class="butn2">X</button></a>
+  <button class="butn1"><a href="#"><?php userimmenu(); ?><?php echo $_SESSION['username']; ?></a></button>
 <button class="butn1"><a href="https://webhost-30b9b.firebaseapp.com/">HOME</a></button>
 <button class="butn1"><a href="https://webhost-30b9b.firebaseapp.com/vmtv">VPLAY</a></button>
 <button class="butn1"><a href="https://hemaborasia.wixsite.com/website">ABOUT US!</a></button>
@@ -62,6 +64,7 @@ if($num> 0){
     while(($row2 = mysqli_fetch_assoc($result2))){
       while($row = mysqli_fetch_assoc($result)){
         // echo var_dump($row);
+        echo "<br>";
         echo "<div id="."s2".">";
         echo "<p1><img ".$imcl." src='".$row2['image']."'>".$row2['name']."</p1>".$ima;
         echo "<a href=".$row['vidpath']."><img".$im2cl."src=".$row['thumbpath']."></a>";
@@ -73,7 +76,7 @@ if($num> 0){
 ?>
 <br>
 <br>
-<?php require_once("includes/footer.php"); ?>
+<?php include("includes/footer.php"); ?>
     </body>
 <script src="script/script.js"></script>
 </html>

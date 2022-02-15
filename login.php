@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+ echo "not logged in";
+}
+else{
+    header('location:index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +22,7 @@
             <h2>Log in form</h2>
             <form action="validation.php" method="post" enctype="multipart/form-data">
             <div class="form-groop">
-                    <label>email</label>
+                    <label>username</label>
                     <input type="text" name="user" class="form-control">
 </div>
 <div class="form-groop">
