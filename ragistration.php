@@ -26,7 +26,7 @@ if($num == 1){
 else{
     $qy=" INSERT into `users`(name , email , password , image ) values ('$name' , '$email' , '$pass' , '$target_file')";
     mysqli_query($con,$qy);
-    createDirectory();
+    // createDirectory();
     userimage();
     header('location:login.php');
 }

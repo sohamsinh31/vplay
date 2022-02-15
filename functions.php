@@ -1,17 +1,18 @@
 <?php
-function createDirectory() {
-		$add = $_POST['user'];
-		mkdir('users/'.$add.'');
-	}
+//function createDirectory() {
+//		$add = $_POST['user'];
+//		mkdir('users/'.$add.'');
+//	}
 function userimage() {
-	session_start();
+	$add = $_POST['user'];
+	mkdir('users/'.$add.'');
 		$con = mysqli_connect('localhost','root');
 		mysqli_select_db($con,'vuploads');
 		$q = " SELECT * FROM `users` ";
 		$result = mysqli_query($con,$q);
 		$num = mysqli_num_rows($result);
 		while($row = mysqli_fetch_assoc($result)){
-			$target_dir = "users/".$_SESSION['username']."/";
+			$target_dir = "users/".$add."/";
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
