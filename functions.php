@@ -41,6 +41,7 @@ function userimage() {
 		}
 		}
 function uploadvideo() {
+	include('includes/db.php');
 	session_start();
 	$target_dir = "uploads/thumbnails/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -94,7 +95,9 @@ if ($uploadOk2 == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
-$sql = "INSERT INTO `persons` (`Name`, `Description`, `thumbpath`, `vidpath`) VALUES ('$name', '$description', '$target_file', '$target_file2')";
+$sql2 = "SELECT * FROM `users`";
+$uploadby = $_SESSION['username'];
+$sql = "INSERT INTO `persons` (`Name`, `Description`, `thumbpath`, `vidpath` , `uploadby`) VALUES ('$name', '$description', '$target_file', '$target_file2' , '$uploadby')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";

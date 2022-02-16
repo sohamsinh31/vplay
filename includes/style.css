@@ -7,6 +7,9 @@ body, p, li {
     overflow: scroll;
     background-color: #0e0e0e;
     }
+    video {
+      border-radius: 12px;
+    }
     input {
       width: 75%;
     }

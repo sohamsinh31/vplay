@@ -67,7 +67,7 @@ if($num> 0){
         echo "<br>";
         echo "<div id="."s2".">";
         echo "<p1><img ".$imcl." src='".$row2['image']."'>".$row2['name']."</p1>".$ima;
-        echo "<a href=".$row['vidpath']."><img".$im2cl."src=".$row['thumbpath']."></a>";
+        echo "<a href=watch.php?video=".$row['vidpath']."><img".$im2cl."src=".$row['thumbpath']."></a>";
         echo "<p3>".$row['Name']."</p3></a>";
     }
   }
