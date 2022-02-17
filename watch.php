@@ -29,7 +29,8 @@ $vidpath2 = $_GET['video'];
 	$num = mysqli_num_rows($result);
 	if($num> 0){
 		while($row = mysqli_fetch_assoc($result)){
-			echo "Title:".$row['Name']."";
+			echo "Title:".$row['Name']."<br>";
+			echo "Description:".$row['Description']."";
 		}
 	}
 ?>

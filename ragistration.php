@@ -9,6 +9,21 @@ if($con){
 else{
     echo "no connection";
 }
+// Required field names
+$required = array('user' , 'email' , 'password');
+
+// Loop over field names, make sure each one exists and is not empty
+$error = false;
+foreach($required as $field) {
+  if (empty($_POST[$field])) {
+    $error = true;
+  }
+}
+
+if ($error) {
+  echo "All fields are required.";
+} else {
+  echo "Proceed...";
 mysqli_select_db($con,'vuploads');
 $name = $_POST['user'];
 $pass = $_POST['password'];
@@ -29,5 +44,6 @@ else{
     // createDirectory();
     userimage();
     header('location:login.php');
+}
 }
 ?>

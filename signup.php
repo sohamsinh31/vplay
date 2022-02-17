@@ -17,23 +17,30 @@ else{
     <title>Document</title>
 </head>
 <body>
-    <div class="row">
-        <div class="col-lg-6">
-            <h2>Log in form</h2>
-            <form action="validation.php" method="post" enctype="multipart/form-data">
-            <div class="form-groop">
+<div class="col-lg-6">
+            <h2>signup form</h2>
+            <form action="ragistration.php" method="post" enctype="multipart/form-data">
+                <div class="form-groop">
                     <label>username</label>
                     <input type="text" name="user" class="form-control">
+</div>
+<div class="form-groop">
+                    <label>email</label>
+                    <input type="text" name="email" class="form-control">
 </div>
 <div class="form-groop">
                     <label>password</label>
                     <input type="password" name="password" class="form-control">
 </div>
+<div class="form-groop">
+                    <label>user profile image</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                </div>
 <br>
-<button onclick="return foo();" type="submit" name="submit" class="btn btn-primary">Login</button>
+<button onclick="return clickme();" class="btn btn-primary" type="submit"  name="submit">UPLOAD</button>
 </form>
 </div>
-<span><a href="signup.php">Not logged in yet click to Sign up</a></span>
+<span><a href="login.php">Already sign up in click to logged in</a></span>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
