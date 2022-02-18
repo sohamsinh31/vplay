@@ -27,7 +27,6 @@ body, li {
       box-shadow: 0 spx 15px rgba(121, 86, 86, 0.7);
     }
     img {
-    border: 5px outset transparent;
     border-radius: 12px;
     }
     div {
@@ -362,6 +361,10 @@ body, li {
     
     @media only screen and (max-width: 768px) {
       /* For mobile phones: */
+      video{
+        width: 99%;
+        height: 215px;
+      }
     .header {
       overflow:scroll;
     }

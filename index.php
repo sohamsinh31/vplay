@@ -23,7 +23,7 @@ font-awesome.min.css">
 <br>
 <div id="lightt" class="white_content2">
   <a style="color: black" href = "javascript:void(0)" onclick = "document.getElementById('lightt').style.display='none';document.getElementById('fade').style.display='none'"><button class="butn2">X</button></a>
-  <button class="butn1"><a href="#"><?php userimmenu(); ?><?php echo $_SESSION['username']; ?></a></button>
+  <button class="butn1"><a href="#"><?php userimmenu(); ?><?php echo "<p style='float:left;text-align:top;'>".$_SESSION['username']."</p>" ?></a></button>
 <button class="butn1"><a href="https://webhost-30b9b.firebaseapp.com/">HOME</a></button>
 <button class="butn1"><a href="https://webhost-30b9b.firebaseapp.com/vmtv">VPLAY</a></button>
 <button class="butn1"><a href="https://hemaborasia.wixsite.com/website">ABOUT US!</a></button>
@@ -61,18 +61,24 @@ $num2 = mysqli_num_rows($result2);
 $num = mysqli_num_rows($result);
 // Display the rows returned by the sql query
 if($num> 0){
-    while(($row2 = mysqli_fetch_assoc($result2))){
       while($row = mysqli_fetch_assoc($result)){
-        // echo var_dump($row);
-        echo "<br>";
-        echo "<div id="."s2".">";
-        echo "<p1><img ".$imcl." src='".$row2['image']."'>".$row2['name']."</p1>".$ima;
-        echo "<a href=watch.php?video=".$row['vidpath']."><img".$im2cl."src=".$row['thumbpath']."></a>";
-        echo "<p3>".$row['Name']."</p3></a>";
+        $rows[] = $row;
+        include('includes/db.php');
+        $user = $row['uploadby'];
+        $sql3 = " SELECT * FROM `users` WHERE name = '$user'";
+        $result3 = mysqli_query($conn,$sql3);
+        $num3 = mysqli_num_rows($result3);
+        if($num3> 0){
+          while(($row3 = mysqli_fetch_assoc($result3))){
+            echo "<br>";
+            echo "<div id="."s2".">";
+            echo "<p1><img ".$imcl." src='".$row3['image']."'>".$row3['name']."</p1>".$ima;
+            echo "<a href=watch.php?video=".$row['id']."><img".$im2cl."src=".$row['thumbpath']."></a>";
+            echo "<p3>".$row['Name']."</p3></a>";
+        }
+      }
     }
   }
-
-}
 ?>
 <br>
 <br>

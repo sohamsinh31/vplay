@@ -16,19 +16,19 @@ include('includes/db.php');
     <title>Document</title>
 </head>
 <body>
-<video controls controlsList="nodownload" width="640" height="320" controls>
-  <source src="<?php echo $_GET['video'] ?>" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-Your browser does not support the video tag.
-</video>
 <br>
 <?php
 $vidpath2 = $_GET['video'];
-	$sql = "SELECT * FROM `persons` WHERE vidpath = '$vidpath2'";
+	$sql = "SELECT * FROM `persons` WHERE id = '$vidpath2'";
 	$result = mysqli_query($conn, $sql);
 	$num = mysqli_num_rows($result);
 	if($num> 0){
 		while($row = mysqli_fetch_assoc($result)){
+			echo "<video controls controlsList='"."nodownload"."'". "width='"."640"."'"."height='"."320"."'". "controls>";
+			 echo "<source src='".$row['vidpath']."' type='video/mp4'>";
+			echo "<source src='"."movie.ogg"."'". "type='"."video/ogg"."'".">";
+		  echo "Your browser does not support the video tag.";
+		  echo "</video>";
 			echo "Title:".$row['Name']."<br>";
 			echo "Description:".$row['Description']."";
 		}

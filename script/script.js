@@ -68,4 +68,8 @@ function togglePopup(){
              alert("Submit button clicked!");
              return true;
           }
+          function foo2() {
+            alert("Submit button clicked!");
+            return true;
+         }
          

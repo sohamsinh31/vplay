@@ -117,4 +117,108 @@ function userimmenu() {
 		}
 	}
 }
+function getUserid() {
+	include("includes/db.php");
+	$nameu = $_SESSION['username'];
+	$sql = "SELECT * FROM `users` WHERE name = '$nameu'";
+	$result = mysqli_query($conn, $sql);
+	$num = mysqli_num_rows($result);
+	if($num> 0){
+		while($row = mysqli_fetch_assoc($result)){
+			echo "<img style="."'width:38px;height:36px;border-radius:100px;float:left;'"." src='".$row['image']."'>";
+		}
+	}
+
+}
+function uploadvideo2(){
+session_start();
+$user = $_SESSION['username'];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "vuploads";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+else
+  echo"connection successfull";
+$name = $_POST['name'];
+$description = $_POST['desc'];
+$target_dir = "uploads/thumbnails/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+if($imageFileType != "png" && $imageFileType != "gif" && $imageFileType != "jpeg"
+&& $imageFileType != "jpg" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+$target_dir2 = "uploads/";
+$target_file2 = $target_dir2 . basename($_FILES["fileToUpload2"]["name"]);
+$uploadOk2 = 1;
+$imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+
+if (file_exists($target_file2)) {
+  echo "Sorry, file already exists.";
+  $uploadOk2 = 0;
+}
+
+if($imageFileType2 != "mp4" && $imageFileType2 != "mkv" && $imageFileType2 != "jpeg"
+&& $imageFileType2 != "jpg" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk2 = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+}
+if ($uploadOk2 == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload2"]["tmp_name"], $target_file2)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload2"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+  $required = array('name' , 'desc');
+
+// Loop over field names, make sure each one exists and is not empty
+$error = false;
+foreach($required as $field) {
+  if (empty($_POST[$field])) {
+    $error = true;
+  }
+}
+
+if ($error) {
+  echo "All fields are required.";
+} else {
+$sql = "INSERT INTO `persons` (`Name`, `Description`, `thumbpath`, `vidpath` , `uploadby`) VALUES ('$name', '$description', '$target_file', '$target_file2' , '$user')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+}
+}
+}
     ?>
