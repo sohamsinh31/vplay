@@ -215,6 +215,7 @@ $sql = "INSERT INTO `persons` (`Name`, `Description`, `thumbpath`, `vidpath` , `
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
+  header('location:index.php');
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
