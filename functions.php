@@ -146,6 +146,7 @@ if ($conn->connect_error) {
 else
   echo"connection successfull";
 $name = $_POST['name'];
+$category = $_POST['category'];
 $description = $_POST['desc'];
 $target_dir = "uploads/thumbnails/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -211,7 +212,7 @@ foreach($required as $field) {
 if ($error) {
   echo "All fields are required.";
 } else {
-$sql = "INSERT INTO `persons` (`Name`, `Description`, `thumbpath`, `vidpath` , `uploadby`) VALUES ('$name', '$description', '$target_file', '$target_file2' , '$user')";
+$sql = "INSERT INTO `persons` (`Name`, `Description`, `thumbpath`, `vidpath` , `uploadby` , `category`) VALUES ('$name', '$description', '$target_file', '$target_file2' , '$user' , '$category')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -221,5 +222,29 @@ if ($conn->query($sql) === TRUE) {
 }
 }
 }
+}
+// function isLiked() {
+// 	include('includes/db.php');
+// 	$sql = " SELECT * FROM `likes` WHERE videoid = '$vidpath2'"
+// 	$num = mysqli_num_rows($result);
+// 	if($num> 0){
+// 		$c = $num;
+// 		return $c;
+// 	}
+
+// }
+function like() {
+	include('includes/db.php');
+	$userid2 = $_SESSION['username'];
+	$vidpath2 = $_GET['video'];
+	$sql = " SELECT * FROM `likes`";
+	isLiked($c);
+	$count = $c+1;
+	if($this->isLiked){
+		echo "already liked";
+	}
+	else{
+		$upload = " INSERT INTO `likes` (`videoid` , `userid` , `count`) VALUES ('$vidpath2','$userid2','$count')";
+	}
 }
     ?>

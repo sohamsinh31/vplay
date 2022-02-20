@@ -20,6 +20,16 @@
   <br>
   <label>Uploadvideo</label>
   <input type="file" name="fileToUpload2" id="fileToUpload2">
+  <label>Category</label>
+  <select name="category">
+<option>SCIENCE&amp;FICTION</option>
+<option>COMEDY</option>
+<option>STUDY&amp;EDUCATION</option>
+<option>ENTERTAINMENT</option>
+<option>ADVANTURE</option>
+<option>BUISNESS</option>
+<option>ROMANCE&amp;LOVE</option>
+</select>
   <button style="width:100%;color:white;" onclick="return foo2();" style="background-color:blue;" class="btn btn-primary" type="submit"  name="submit">Uploadvideo</button>
 </div>
 </form>

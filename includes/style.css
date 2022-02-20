@@ -18,6 +18,16 @@ body, li {
       height: 36px;
       color: white;
     }
+    select {
+      border-bottom: 2px solid white;
+      background:none;
+      border-style: none none solid;
+      color: white;
+    }
+    option {
+      background-color: black;
+      color: white;
+    }
     label {
       height: 25px;
     }

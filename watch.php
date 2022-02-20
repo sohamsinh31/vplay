@@ -9,11 +9,12 @@ include('includes/db.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link id="stylesheet" rel="stylesheet" type="text/css" href="includes/style.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>video</title>
 </head>
 <body>
 <br>
@@ -26,11 +27,10 @@ $vidpath2 = $_GET['video'];
 		while($row = mysqli_fetch_assoc($result)){
 			echo "<video controls controlsList='"."nodownload"."'". "width='"."640"."'"."height='"."320"."'". "controls>";
 			 echo "<source src='".$row['vidpath']."' type='video/mp4'>";
-			echo "<source src='"."movie.ogg"."'". "type='"."video/ogg"."'".">";
-		  echo "Your browser does not support the video tag.";
 		  echo "</video>";
 			echo "Title:".$row['Name']."<br>";
 			echo "Description:".$row['Description']."";
+			echo "<button onclick='return foo2();''";
 		}
 	}
 ?>
