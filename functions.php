@@ -199,7 +199,7 @@ if ($uploadOk2 == 0) {
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
-  $required = array('name' , 'desc');
+$required = array('name' , 'desc');
 
 // Loop over field names, make sure each one exists and is not empty
 $error = false;

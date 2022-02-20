@@ -15,10 +15,9 @@
               </button>
 	</div>
 	</div>
-	<button class="openBtn"
-			onclick="openSearch()">
-		  <i id="fa" class="fa fa-search"></i>
-	</button>
+	<a href="search.php"><button class="openBtn">
+<i id="fa" class="fa fa-search"></i>
+	</button></a>
   <button class="openBtn">
     <a href="upload.php"><i id="fa" class="fa fa-plus" aria-hidden="true"></i>
   </button></a>
