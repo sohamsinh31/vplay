@@ -21,17 +21,7 @@ include('includes/db.php');
 <br>
 <div class="upload" id="upload">
 <?php
-$username = $_SESSION['username'];
-	$sql = "SELECT * FROM `users` WHERE name = '$username'";
-	$result = mysqli_query($conn, $sql);
-	$num = mysqli_num_rows($result);
-	if($num> 0){
-		while($row = mysqli_fetch_assoc($result)){
-            echo "<br>";
-			echo "<img class='"."im3"."'"."src='".$row['image']."'><i style='"."float: left;padding-top: 52px;"."'"."class='"."fas fa-pencil-alt"."'></i>"."<span class='"."userim"."'>".$row['name']."<i class='"."fas fa-pencil-alt"."'></i></span>";
-			echo "<button onclick='uploads()''>Uploads</button>";
-		}
-	}
+useruploads();
 ?>
 </div>
 </body>

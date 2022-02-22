@@ -10,6 +10,9 @@ body, li {
     video {
       border-radius: 12px;
     }
+    i {
+      color: white;
+    }
     label {
       float: left;
     }
@@ -30,6 +33,20 @@ body, li {
     }
     label {
       height: 25px;
+    }
+    .im3{
+      width: 25%;
+      height: 15%;
+      border-radius: 100px;
+      float: left;
+    }
+    .userim{
+    width: 65%;
+    float: right;
+    height: 15%;
+    text-align: left;
+    padding-top: 15px;
+    padding-left: 18px;
     }
     .upload{
       font-size: larger;

@@ -1,5 +1,7 @@
 <?php
-session_start();
+session_start([
+  'cookie_lifetime' => 86400,
+]);
 header('location:login.php');
 $con = mysqli_connect('localhost','root');
 if($con){

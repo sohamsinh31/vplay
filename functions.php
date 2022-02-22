@@ -247,4 +247,37 @@ function like() {
 		$upload = " INSERT INTO `likes` (`videoid` , `userid` , `count`) VALUES ('$vidpath2','$userid2','$count')";
 	}
 }
+function useruploads() {
+$namee = $_SESSION['username'];
+$sql = "SELECT * FROM `persons` WHERE uploadby = '$namee'";
+include('includes/db.php');
+$ima = "<p2 style='color: black;'><a href = 'javascript:void(0)' onclick = 'document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block''>:</a></p2>";
+$result = mysqli_query($conn, $sql);
+$imcl =" class='im1'";
+$im2cl =" class='im2'";
+$imsrc =" 'src='.$username.''";
+$num = mysqli_num_rows($result);
+$sql2 = "SELECT * FROM `users`";
+$result2 = mysqli_query($conn, $sql2);
+$num2 = mysqli_num_rows($result2);
+if($num> 0){
+	while($row = mysqli_fetch_assoc($result)){
+	  $rows[] = $row;
+	  include('includes/db.php');
+	  $user = $row['uploadby'];
+	  $sql3 = " SELECT * FROM `users` WHERE name = '$user'";
+	  $result3 = mysqli_query($conn,$sql3);
+	  $num3 = mysqli_num_rows($result3);
+	  if($num3> 0){
+		while(($row3 = mysqli_fetch_assoc($result3))){
+		  echo "<br>";
+		  echo "<div id="."s2".">";
+		  echo "<p1><img ".$imcl." src='".$row3['image']."'>".$row3['name']."</p1>".$ima;
+		  echo "<a href=watch.php?video=".$row['id']."><img".$im2cl."src=".$row['thumbpath']."></a>";
+		  echo "<p3>".$row['Name']."</p3></a>";
+	  }
+	}
+  }
+}
+}
     ?>

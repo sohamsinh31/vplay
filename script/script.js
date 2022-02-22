@@ -72,4 +72,7 @@ function togglePopup(){
             alert("Submit button clicked!");
             return true;
          }
+         function uploads() {
+            window.location='uservideos.php';
+         }
          
