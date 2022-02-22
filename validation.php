@@ -32,6 +32,9 @@ $num = mysqli_num_rows($result);
 if($num == 1){
     $_SESSION['username'] = $name;
     header('location:index.php');
+    while($row = mysqli_fetch_array($result)){
+      $_SESSION['id'] = $row['id'];
+    }
 }
 else{
     header('location:login.php');

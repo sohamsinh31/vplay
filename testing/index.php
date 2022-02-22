@@ -1,21 +1,16 @@
 <?php
 
 include "config.php";
-session_start();
-if(!isset($_SESSION['username'])){
-  header('location:login.php');
-}
-include('functions.php'); 
+
 ?>
 <html>
     <head>
         <title>video</title>
         <link href="style.css" type="text/css" rel="stylesheet" />
-		<link id="stylesheet" rel="stylesheet" type="text/css" href="includes/style.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <script src="script.js" type="text/javascript"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
     <body>
         <div class="content">
@@ -62,9 +57,9 @@ include('functions.php');
                         </div>
                         <div class="post-action">
 
-						&nbsp;(<span id="likes_<?php echo $postid; ?>"><?php echo $total_likes; ?></span>)<input style="width:35px;" type="button" value="Like" id="like_<?php echo $postid; ?>" class="like" style="<?php if($type == 1){ echo "color: #ffa449;"; } ?>" />
+                            <input type="button" value="Like" id="like_<?php echo $postid; ?>" class="like" style="<?php if($type == 1){ echo "color: #ffa449;"; } ?>" />&nbsp;(<span id="likes_<?php echo $postid; ?>"><?php echo $total_likes; ?></span>)&nbsp;
 
-						&nbsp;(<span id="unlikes_<?php echo $postid; ?>"><?php echo $total_unlikes; ?></span>)<input style="width:49px;" type="button" value="Unlike" id="unlike_<?php echo $postid; ?>" class="unlike" style="<?php if($type == 0){ echo "color: #ffa449;"; } ?>" />
+                            <input type="button" value="Unlike" id="unlike_<?php echo $postid; ?>" class="unlike" style="<?php if($type == 0){ echo "color: #ffa449;"; } ?>" />&nbsp;(<span id="unlikes_<?php echo $postid; ?>"><?php echo $total_unlikes; ?></span>)
 
                         </div>
                     </div>
