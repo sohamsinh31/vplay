@@ -61,15 +61,15 @@ function togglePopup(){
            minitv.preventDefault();
          });
          function clickme(){
-          alert("Submit button clicked!");
+          // alert("Submit button clicked!");
           return true;
           }
           function foo() {
-             alert("Submit button clicked!");
+            //  alert("Submit button clicked!");
              return true;
           }
           function foo2() {
-            alert("Submit button clicked!");
+            // alert("Submit button clicked!");
             return true;
          }
          function uploads() {
